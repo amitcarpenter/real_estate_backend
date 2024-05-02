@@ -16,7 +16,7 @@ const contactUserDetails = async (req, res) => {
     const data = await newContact.save();
 
     const payload = {
-      email: process.env.ADMIN_EMAIL, // admin email address
+      email: process.env.ADMIN_EMAIL, 
       subject: `${name} is contacting you`,
       userData: newContact,
     };
@@ -25,6 +25,7 @@ const contactUserDetails = async (req, res) => {
       return res.status(201).json({
         status: true,
         message: "Contact details submitted successfully",
+        data : data
       });
     } else {
       return res.status(400).json({
